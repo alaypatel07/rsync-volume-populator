@@ -1,0 +1,16 @@
+domain: volume.konveyor.dev
+layout:
+- go.kubebuilder.io/v3
+projectName: rsync-volume-populator
+repo: github.com/alaypatel07/rsync-volume-populator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: volume.konveyor.dev
+  group: populator
+  kind: Rsync
+  path: github.com/alaypatel07/rsync-volume-populator/api/v1alpha1
+  version: v1alpha1
+version: "3"

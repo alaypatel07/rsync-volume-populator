@@ -1,0 +1,6 @@
+apiVersion: populator.volume.konveyor.dev/v1alpha1
+kind: Rsync
+metadata:
+  name: rsync-sample
+spec:
+  # TODO(user): Add fields here

@@ -1,0 +1,20 @@
+# permissions for end users to view rsyncs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: rsync-viewer-role
+rules:
+- apiGroups:
+  - populator.volume.konveyor.dev
+  resources:
+  - rsyncs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - populator.volume.konveyor.dev
+  resources:
+  - rsyncs/status
+  verbs:
+  - get

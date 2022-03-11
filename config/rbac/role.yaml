@@ -1,0 +1,55 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - populator.volume.konveyor.dev
+  resources:
+  - rsyncs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - populator.volume.konveyor.dev
+  resources:
+  - rsyncs/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - ""
+  resources:
+  - "pods"
+  - "persistentvolumeclaims"
+  - "persistentvolumeclaims/finalizers"
+  - "persistentvolumes"
+  verbs:
+  - "*"
+- apiGroups: [storage.k8s.io]
+  resources: [storageclasses]
+  verbs: [get, list, watch]
+- apiGroups:
+    - "tekton.dev"
+  resources:
+    - "pipelineruns"
+  verbs:
+    - "*"
+- apiGroups:
+    - populator.volume.konveyor.dev
+  resources:
+    - rsyncs
+  verbs:
+    - create
+    - delete
+    - get
+    - list
+    - patch
+    - update
+    - watch
